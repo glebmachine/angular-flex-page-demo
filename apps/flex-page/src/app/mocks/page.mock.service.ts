@@ -1,7 +1,7 @@
 import { HttpEvent, HttpResponse } from "@angular/common/http";
 import { randNumber, randText, randUrl } from "@ngneat/falso";
 import { delay, Observable, of } from "rxjs";
-import { FlexPage, PageService, TextContent, VideoContent } from "../../../../../libs/swagger";
+import { FlexPage, PageService, TestContent, TestQuestion, TestQuestionAnwser, TextContent, VideoContent } from "../../../../../libs/swagger";
 
 function mockTextContent(): TextContent {
   return {
@@ -19,6 +19,36 @@ function mockVideoContent(): VideoContent {
   }
 }
 
+
+function mockTestQuestion(): TestQuestion {
+ return {
+    questionId: randNumber(),
+    question: randText() + '?',
+    anwsers: [
+      mockTestQuestionAnswer(),
+      mockTestQuestionAnswer(),
+      mockTestQuestionAnswer(),
+    ]
+  }
+}
+function mockTestQuestionAnswer(): TestQuestionAnwser {
+ return {
+    anwserId: randNumber(),
+    answer: randText(),
+  }
+}
+
+function mockTestContent(): TestContent {
+  return {
+    id : randNumber(),
+    type: 'test',
+    questions: [
+      mockTestQuestion(),
+      mockTestQuestion(),
+    ]
+  }
+}
+
 export class PageMockService extends PageService {
   public override getPage(observe?: 'body', reportProgress?: boolean): Observable<FlexPage>;
   public override getPage(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FlexPage>>;
@@ -28,6 +58,7 @@ export class PageMockService extends PageService {
       mockTextContent(),
       mockVideoContent(),
       mockTextContent(),
+      mockTestContent(),
     ]).pipe(
       delay(Math.random()*600)
     )

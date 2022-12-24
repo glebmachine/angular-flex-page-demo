@@ -51,6 +51,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FlexPage'
+  /test/answer:
+    post:
+      tags:
+        - test
+      description: Отправить свой ответ на тест
+      operationId: sendAnswer
+      requestBody:
+        description: Ответ на тест
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuestionAnswerRequest'
 components:
   schemas:
     FlexPage:
@@ -59,6 +72,7 @@ components:
         oneOf:
           - $ref: '#/components/schemas/TextContent'
           - $ref: '#/components/schemas/VideoContent'
+          - $ref: '#/components/schemas/TestContent'
     TextContent:
       type: object
       properties:
@@ -91,5 +105,58 @@ components:
         - type
         - url
 
+    TestContent:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+          enum:
+            - test
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestQuestion'
+      required:
+        - id
+        - type
+        - questions
 
+    TestQuestion:
+      type: object
+      properties:
+        questionId:
+          type: number
+        question:
+          type: string
+        anwsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestQuestionAnwser'
+      required:
+        - questionId
+        - question
+        - anwsers
 
+    TestQuestionAnwser:
+      type: object
+      properties:
+        anwserId:
+          type: number
+        answer:
+          type: string
+      required:
+        - anwserId
+        - answer
+
+    QuestionAnswerRequest:
+      type: object
+      properties:
+        questionId:
+          type: integer
+        answerId:
+          type: integer
+      required:
+        - questionId
+        - answerId

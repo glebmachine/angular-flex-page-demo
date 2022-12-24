@@ -1,0 +1,16 @@
+
+
+<ng-container *ngIf="content">
+    <h1>{{ content.id }}</h1>
+    <p>{{ content.questions | json }}</p>
+
+    <div *ngFor="let question of content.questions">
+      <h2>{{ question.question }}</h2>
+      <ul>
+        <li *ngFor="let answer of question.anwsers">
+          {{ answer.answer | json }}
+          <a href="#" (click)="chooseAnswer(question.questionId, answer.anwserId)">Выбрать ответ!</a>
+        </li>
+      </ul>
+    </div>
+  </ng-container>

@@ -1,6 +1,7 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { shareReplay } from 'rxjs';
+import { TestContentComponent } from '../../../../libs/base-ui/src/lib/test-content/test-content.component';
 import { TextContentComponent } from '../../../../libs/base-ui/src/lib/text-content/text-content.component';
 import { VideoContentComponent } from '../../../../libs/base-ui/src/lib/video-content/video-content.component';
 import { PageService } from '../../../../libs/swagger';
@@ -28,6 +29,11 @@ export class AppComponent {
             case 'video':
               this.viewContainerRef.createComponent(VideoContentComponent).instance.content = value;
               break;
+            case 'test':
+              this.viewContainerRef.createComponent(TestContentComponent).instance.content = value;
+              break;
+            default:
+              const itShouldBeGreenForever: never = value;
           }
         })
       });

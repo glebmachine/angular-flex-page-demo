@@ -6,7 +6,8 @@ import { TextContent } from '../../../../swagger';
   template: `
     <h1>{{ content?.id }}</h1>
     <p>{{ content?.content }}</p>
-  `
+  `,
+  standalone: true,
 })
 export class TextContentComponent {
   @Input() public content: TextContent | undefined;

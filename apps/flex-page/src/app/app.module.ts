@@ -1,12 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BaseUiModule } from '../../../../libs/base-ui/src';
-import { ApiModule, Configuration, PageService } from '../../../../libs/swagger';
+import { ApiModule, Configuration, PageService, TestService } from '../../../../libs/swagger';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageMockService } from './mocks/page.mock.service';
+import { TestMockService } from './mocks/test.mock.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +14,6 @@ import { PageMockService } from './mocks/page.mock.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BaseUiModule,
     ApiModule.forRoot(() => {
       return {
         basePath: 'https://pornhub.com/api/v1'
@@ -23,6 +22,7 @@ import { PageMockService } from './mocks/page.mock.service';
   ],
   providers: [
     { provide: PageService, useClass: PageMockService },
+    { provide: TestService, useClass: TestMockService },
   ],
   bootstrap: [AppComponent],
 })
