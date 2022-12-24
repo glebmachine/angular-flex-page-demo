@@ -64,10 +64,15 @@ components:
       properties:
         id:
           type: integer
+        type:
+          type: string
+          enum:
+            - text
         content:
           type: string
       required:
         - id
+        - type
         - content
 
     VideoContent:
@@ -75,10 +80,15 @@ components:
       properties:
         id:
           type: integer
+        type:
+          type: string
+          enum:
+            - video
         url:
           type: string
       required:
         - id
+        - type
         - url
 
 

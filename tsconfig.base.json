@@ -20,7 +20,8 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@flex/swagger": ["libs/swagger/index.ts"]
+      "@flex/swagger": ["libs/swagger/index.ts"],
+      "base-ui": ["libs/base-ui/src/index.ts"]
     },
     "rootDir": "."
   },

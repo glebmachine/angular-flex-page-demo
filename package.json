@@ -8,7 +8,7 @@
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
     "postinstall": "node ./decorate-angular-cli.js",
-    "swagger": "java -jar ./tools/swagger/swagger-codegen-cli-3.0.30.jar generate -o libs/swagger -l typescript-angular -c tools/swagger/config.json -t tools/swagger/template/ -i tools/swagger/swagger.yaml"
+    "swagger": "java -jar ./tools/swagger/swagger-codegen-cli-3.0.20.jar generate -o libs/swagger -l typescript-angular -c tools/swagger/config.json -t tools/swagger/template/ -i tools/swagger/swagger.yaml"
   },
   "private": true,
   "dependencies": {

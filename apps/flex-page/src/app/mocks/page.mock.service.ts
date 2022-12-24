@@ -6,6 +6,7 @@ import { FlexPage, PageService, TextContent, VideoContent } from "../../../../..
 function mockTextContent(): TextContent {
   return {
     id : randNumber(),
+    type: 'text',
     content: randText({ length: 10 }).join(' '),
   }
 }
@@ -13,6 +14,7 @@ function mockTextContent(): TextContent {
 function mockVideoContent(): VideoContent {
   return {
     id : randNumber(),
+    type: 'video',
     url: randUrl(),
   }
 }
