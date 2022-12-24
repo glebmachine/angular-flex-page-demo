@@ -1,0 +1,14 @@
+
+{
+  "compilerOptions": {
+    "experimentalDecorators": true
+  },
+  "references": [
+    {
+      "path": "./apps/flex-page/tsconfig.app.json"
+    },
+    {
+      "path": "./libs/demo/tsconfig.lib.json"
+    }
+  ],
+}

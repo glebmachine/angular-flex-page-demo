@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PageService } from '../../../../libs/swagger';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
-  title = 'flex-page';
+  public data$ = this.api.getPage();
+
+  constructor( private api: PageService) {}
+
 }

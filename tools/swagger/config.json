@@ -1,0 +1,7 @@
+{
+  "modelPropertyNames": "original",
+  "additionalProperties": {
+    "useRxJS6": true,
+    "ngVersion": "10"
+  }
+}
